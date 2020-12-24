@@ -10,7 +10,10 @@ export const DatePicker: React.FC = (): ReactElement => {
   return (
     <div className={css.DatePicker}>
       <Input />
-      <Calendar />
+      <Calendar
+        initialDate={new Date()}
+        onChangeDate={(date) => console.log(date)}
+      />
       <Footer />
     </div>
   )

@@ -5,7 +5,7 @@ export type ICalendarProviderData = {
   currentMonth: Date,
   nextMonth: () => void,
   prevMonth: () => void,
-  setSelectedDate: (date: Date) => void
+  changeDate: (date: Date) => void
 }
 
 const mockContext: ICalendarProviderData = {
@@ -13,7 +13,7 @@ const mockContext: ICalendarProviderData = {
   currentMonth: new Date(),
   nextMonth: () => { },
   prevMonth: () => { },
-  setSelectedDate: () => { }
+  changeDate: () => { }
 }
 
 export const CalendarProviderContext = createContext<ICalendarProviderData>(mockContext)
