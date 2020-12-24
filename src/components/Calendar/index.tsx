@@ -1,9 +1,20 @@
 import React, { ReactElement } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
+import { eachDayOfInterval, lastDayOfMonth, setDate } from 'date-fns'
 
 import css from './Calendar.sass'
 
 export const Calendar: React.FC = (): ReactElement => {
+  const currentDate = new Date(2020, 10, 1)
+  const daysInMonth = eachDayOfInterval({
+    start: setDate(currentDate, 1),
+    end: lastDayOfMonth(currentDate)
+  })
+
+  const prevDaysCount: Array<null> = Array(daysInMonth[0].getDay()).fill(null)
+
+  const calendarDays: Array<Date | null> = [...prevDaysCount, ...daysInMonth]
+
   return (
     <div className={css.Calendar}>
       <header className={css.C__Header}>
@@ -28,39 +39,9 @@ export const Calendar: React.FC = (): ReactElement => {
           </ul>
         </header>
         <ul className={css.C__MonthDays}>
-          <li></li>
-          <li></li>
-          <li className={css.MD__Day}>1</li>
-          <li className={css.MD__Day}>2</li>
-          <li className={css.MD__Day}>3</li>
-          <li className={css.MD__Day}>4</li>
-          <li className={css.MD__Day}>5</li>
-          <li className={css.MD__Day}>6</li>
-          <li className={css.MD__Day}>7</li>
-          <li className={css.MD__Day}>8</li>
-          <li className={css.MD__Day}>9</li>
-          <li className={css.MD__Day}>10</li>
-          <li className={css.MD__Day}>11</li>
-          <li className={css.MD__Day}>12</li>
-          <li className={css.MD__Day}>13</li>
-          <li className={css.MD__Day}>14</li>
-          <li className={css.MD__Day}>15</li>
-          <li className={css.MD__Day}>16</li>
-          <li className={css.MD__Day}>17</li>
-          <li className={css.MD__Day}>18</li>
-          <li className={css.MD__Day}>19</li>
-          <li className={css.MD__Day}>20</li>
-          <li className={css.MD__Day}>21</li>
-          <li className={`${css.MD__Day} ${css['MD__Day--selected']}`}>22</li>
-          <li className={`${css.MD__Day} ${css['MD__Day--today']}`}>23</li>
-          <li className={css.MD__Day}>24</li>
-          <li className={css.MD__Day}>25</li>
-          <li className={css.MD__Day}>26</li>
-          <li className={css.MD__Day}>27</li>
-          <li className={css.MD__Day}>28</li>
-          <li className={css.MD__Day}>29</li>
-          <li className={css.MD__Day}>30</li>
-          <li className={css.MD__Day}>31</li>
+          {calendarDays.map(day => (
+            day ? <li key={day.getDate()} className={css.MD__Day}>{day.getDate()}</li> : <li></li>
+          ))}
         </ul>
       </main>
       <footer className={css.C__Footer}>
