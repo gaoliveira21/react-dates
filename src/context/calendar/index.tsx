@@ -6,7 +6,6 @@ import { CalendarProviderContext } from './context'
 export const CalendarProvider: React.FC = ({ children }): ReactElement => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [currentMonth, setCurrentMonth] = useState(setDate(new Date(), 1))
-  const currentDate = new Date()
 
   const nextMonth = (): void => {
     setCurrentMonth(addMonths(currentMonth, 1))
@@ -20,7 +19,6 @@ export const CalendarProvider: React.FC = ({ children }): ReactElement => {
     <CalendarProviderContext.Provider
       value={{
         selectedDate,
-        currentDate,
         currentMonth,
         nextMonth,
         prevMonth,

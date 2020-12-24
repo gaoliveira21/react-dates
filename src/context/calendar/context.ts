@@ -2,7 +2,6 @@ import { createContext, useContext } from 'react'
 
 export type ICalendarProviderData = {
   selectedDate: Date | null,
-  currentDate: Date,
   currentMonth: Date,
   nextMonth: () => void,
   prevMonth: () => void,
@@ -11,11 +10,10 @@ export type ICalendarProviderData = {
 
 const mockContext: ICalendarProviderData = {
   selectedDate: null,
-  currentDate: new Date(),
   currentMonth: new Date(),
-  nextMonth: () => console.log('next'),
+  nextMonth: () => { },
   prevMonth: () => { },
-  setSelectedDate: () => {}
+  setSelectedDate: () => { }
 }
 
 export const CalendarProviderContext = createContext<ICalendarProviderData>(mockContext)
