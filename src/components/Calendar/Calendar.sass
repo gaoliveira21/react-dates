@@ -1,0 +1,33 @@
+$primary: #292d33
+$text: #a4a9b3
+
+.Calendar
+  width: 280px
+  background: $primary
+  color: $text
+  padding: 10px
+  border-radius: 4px
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4)
+  font-size: 1rem
+
+  .C__Header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-bottom: 8px
+
+    .H__Buttons
+      border: 0
+      background: transparent
+      color: $text
+      cursor: pointer
+      font-size: 1rem
+      transition: background 400ms
+
+      &:hover
+        color: darken($text, 10%)
+
+  .C__WeekDays
+    display: flex
+    justify-content: space-between
+    margin-bottom: 8px
