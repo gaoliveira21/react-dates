@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { eachDayOfInterval, lastDayOfMonth, setDate } from 'date-fns'
+import { eachDayOfInterval, lastDayOfMonth } from 'date-fns'
 
 import { useCalendarProviderContext } from '@/context/calendar/context'
 import { Day } from '@/components/Day'
@@ -9,7 +9,7 @@ import css from './Body.sass'
 export const Body: React.FC = (): ReactElement => {
   const { currentMonth } = useCalendarProviderContext()
   const daysInMonth = eachDayOfInterval({
-    start: setDate(currentMonth, 1),
+    start: currentMonth,
     end: lastDayOfMonth(currentMonth)
   })
 
