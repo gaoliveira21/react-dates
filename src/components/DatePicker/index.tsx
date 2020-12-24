@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react'
+
 import { CalendarProvider } from '@/context/calendar'
 
 import { Header } from './Header'
 import { Body } from './Body'
+import { Footer } from './Footer'
 
-import css from './Calendar.sass'
+import css from './DatePicker.sass'
 
-export const Calendar: React.FC = (): ReactElement => {
+export const DatePicker: React.FC = (): ReactElement => {
   return (
     <CalendarProvider>
       <div className={css.Calendar}>
@@ -25,6 +27,7 @@ export const Calendar: React.FC = (): ReactElement => {
           </header>
           <Body />
         </main>
+        <Footer />
       </div>
     </CalendarProvider>
   )

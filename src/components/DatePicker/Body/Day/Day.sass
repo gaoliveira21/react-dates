@@ -1,0 +1,24 @@
+$primaryBackground: #292d33
+$primary: #169de0
+$text: #a4a9b3
+
+.Day
+  text-align: center
+  cursor: pointer
+  padding: 6px
+  color: #fff
+  border-radius: 4px
+  font-size: 1rem
+
+  &:hover
+    background: lighten($primaryBackground, 20%)
+
+  &--today
+    border: 1px solid $primary
+    padding: 5px
+
+  &--selected
+    background: $primary
+
+    &:hover
+      background: darken($primary, 3%)
