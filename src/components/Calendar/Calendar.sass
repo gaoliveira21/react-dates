@@ -1,9 +1,10 @@
-$primary: #292d33
+$primaryBackground: #292d33
+$primary: #169de0
 $text: #a4a9b3
 
 .Calendar
   width: 280px
-  background: $primary
+  background: $primaryBackground
   color: $text
   padding: 10px
   border-radius: 4px
@@ -28,6 +29,34 @@ $text: #a4a9b3
         color: darken($text, 10%)
 
   .C__WeekDays
-    display: flex
-    justify-content: space-between
+    display: grid
+    grid-template-columns: repeat(7, 1fr)
+    grid-gap: 8px
     margin-bottom: 8px
+
+  .C__MonthDays
+    display: grid
+    grid-template-columns: repeat(7, 1fr)
+    grid-gap: 4px
+    padding: 8px 0
+
+    .MD__Day
+      text-align: center
+      cursor: pointer
+      padding: 6px
+      color: #fff
+      border-radius: 4px
+      font-size: 1rem
+
+      &:hover
+        background: lighten($primaryBackground, 20%)
+
+      &--today
+        border: 1px solid $primary
+        padding: 5px
+
+      &--selected
+        background: $primary
+
+        &:hover
+          background: darken($primary, 3%)
