@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { eachDayOfInterval, lastDayOfMonth } from 'date-fns'
 
 import { useCalendarProviderContext } from '@/context/calendar/context'
-import { Day } from '@/components/Day'
+import { Day } from '@/components/Calendar/Body/Day'
 
 import css from './Body.sass'
 
