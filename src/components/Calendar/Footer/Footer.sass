@@ -1,0 +1,32 @@
+$primaryBackground: #292d33
+$primary: #169de0
+$text: #a4a9b3
+
+.Footer
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 8px
+  border-top: 1px solid darken($text, 30%)
+
+  .F__Actions
+    display: flex
+    align-items: center
+
+    .A__Action
+      color: $primary
+
+      &:hover
+        text-decoration: underline
+
+  .F__Button
+    border: 0
+    background: transparent
+    cursor: pointer
+
+  .F__Confirm
+    background: $primary
+    padding: 4px 8px
+    border-radius: 4px
+    color: #fff

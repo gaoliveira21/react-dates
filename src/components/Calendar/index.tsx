@@ -4,6 +4,7 @@ import { CalendarProvider } from '@/context/calendar'
 
 import { Header } from './Header'
 import { Body } from './Body'
+import { Footer } from './Footer'
 
 import css from './Calendar.sass'
 
@@ -26,13 +27,7 @@ export const Calendar: React.FC = (): ReactElement => {
           </header>
           <Body />
         </main>
-        <footer className={css.C__Footer}>
-          <div className={css.F__Actions}>
-            <button type="button" className={`${css.F__Button} ${css.A__Action}`}>Today</button>
-            <button type="button" className={`${css.F__Button} ${css.A__Action}`}>Yesterday</button>
-          </div>
-          <button type="button" className={`${css.F__Button} ${css.F__Confirm}`}>OK</button>
-        </footer>
+        <Footer />
       </div>
     </CalendarProvider>
   )

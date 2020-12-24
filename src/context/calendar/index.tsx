@@ -7,6 +7,8 @@ export const CalendarProvider: React.FC = ({ children }): ReactElement => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   const [currentMonth, setCurrentMonth] = useState(setDate(new Date(), 1))
 
+  console.log(selectedDate)
+
   const nextMonth = (): void => {
     setCurrentMonth(addMonths(currentMonth, 1))
   }
