@@ -2,18 +2,20 @@ import React, { ReactElement } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
 import { eachDayOfInterval, lastDayOfMonth, setDate } from 'date-fns'
 
+import { Day } from '../Day'
+
 import css from './Calendar.sass'
 
 export const Calendar: React.FC = (): ReactElement => {
-  const currentDate = new Date(2020, 10, 1)
+  const currentDate = new Date()
   const daysInMonth = eachDayOfInterval({
     start: setDate(currentDate, 1),
     end: lastDayOfMonth(currentDate)
   })
 
-  const prevDaysCount: Array<null> = Array(daysInMonth[0].getDay()).fill(null)
+  const prevDays: Array<null> = Array(daysInMonth[0].getDay()).fill(null)
 
-  const calendarDays: Array<Date | null> = [...prevDaysCount, ...daysInMonth]
+  const calendarDays: Array<Date | null> = [...prevDays, ...daysInMonth]
 
   return (
     <div className={css.Calendar}>
@@ -39,8 +41,8 @@ export const Calendar: React.FC = (): ReactElement => {
           </ul>
         </header>
         <ul className={css.C__MonthDays}>
-          {calendarDays.map(day => (
-            day ? <li key={day.getDate()} className={css.MD__Day}>{day.getDate()}</li> : <li></li>
+          {calendarDays.map(date => (
+            <Day key={Math.random() * 10} date={date}/>
           ))}
         </ul>
       </main>
