@@ -7,13 +7,13 @@ import { Body } from './Body'
 import css from './Calendar.sass'
 
 type ICalendar = {
-  initialDate?: Date
+  currentDate?: Date
   onChangeDate?: (date: Date) => void
 }
 
-export const Calendar: React.FC<ICalendar> = ({ initialDate, onChangeDate }): ReactElement => {
+export const Calendar: React.FC<ICalendar> = ({ currentDate, onChangeDate }): ReactElement => {
   return (
-    <CalendarProvider initialDate={initialDate} onChangeDate={onChangeDate}>
+    <CalendarProvider currentDate={currentDate} onChangeDate={onChangeDate}>
       <div className={css.Calendar}>
         <Header />
         <main>

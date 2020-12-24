@@ -4,12 +4,12 @@ import { addMonths, subMonths, setDate, startOfDay } from 'date-fns'
 import { CalendarProviderContext } from './context'
 
 type ICalendarProvider = {
-  initialDate?: Date
+  currentDate?: Date
   onChangeDate?: (date: Date) => void
 }
 
-export const CalendarProvider: React.FC<ICalendarProvider> = ({ children, initialDate, onChangeDate }): ReactElement => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(startOfDay(initialDate) || null)
+export const CalendarProvider: React.FC<ICalendarProvider> = ({ children, currentDate, onChangeDate }): ReactElement => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(startOfDay(currentDate) || null)
   const [currentMonth, setCurrentMonth] = useState(setDate(new Date(), 1))
 
   const nextMonth = (): void => {
