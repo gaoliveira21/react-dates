@@ -2,10 +2,11 @@ import React, { ReactElement } from 'react'
 
 import { Calendar } from './components/Calendar'
 
+import css from './App.sass'
+
 export const App: React.FC = (): ReactElement => {
   return (
-    <div>
-      <h1>React Dates</h1>
+    <div className={css.App}>
       <Calendar />
     </div>
   )

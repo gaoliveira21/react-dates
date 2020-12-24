@@ -63,6 +63,13 @@ export const Calendar: React.FC = (): ReactElement => {
           <li className={css.MD__Day}>31</li>
         </ul>
       </main>
+      <footer className={css.C__Footer}>
+        <div className={css.F__Actions}>
+          <button type="button" className={`${css.F__Button} ${css.A__Action}`}>Today</button>
+          <button type="button" className={`${css.F__Button} ${css.A__Action}`}>Yesterday</button>
+        </div>
+        <button type="button" className={`${css.F__Button} ${css.F__Confirm}`}>OK</button>
+      </footer>
     </div>
   )
 }
